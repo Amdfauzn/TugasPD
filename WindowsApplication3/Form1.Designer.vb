@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CbMataKuliah
+Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,10 +28,10 @@ Partial Class CbMataKuliah
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.BtnNew = New System.Windows.Forms.Button()
-        Me.Btsave = New System.Windows.Forms.Button()
-        Me.Btdelete = New System.Windows.Forms.Button()
+        Me.Btnsave = New System.Windows.Forms.Button()
+        Me.Btndelete = New System.Windows.Forms.Button()
         Me.Btnclose = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvdata = New System.Windows.Forms.DataGridView()
         Me.NIP = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nama = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Alamat = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,17 +39,22 @@ Partial Class CbMataKuliah
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txttugas = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CbJurusan = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.BtnHitungGrade = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cbjurusan = New System.Windows.Forms.ComboBox()
+        Me.Cbmatkul = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.lblgrade = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnprocess = New System.Windows.Forms.Button()
+        CType(Me.dgvdata, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Txtnip
@@ -102,23 +107,23 @@ Partial Class CbMataKuliah
         Me.BtnNew.Text = "New"
         Me.BtnNew.UseVisualStyleBackColor = True
         '
-        'Btsave
+        'Btnsave
         '
-        Me.Btsave.Location = New System.Drawing.Point(194, 340)
-        Me.Btsave.Name = "Btsave"
-        Me.Btsave.Size = New System.Drawing.Size(100, 34)
-        Me.Btsave.TabIndex = 7
-        Me.Btsave.Text = "Save"
-        Me.Btsave.UseVisualStyleBackColor = True
+        Me.Btnsave.Location = New System.Drawing.Point(194, 340)
+        Me.Btnsave.Name = "Btnsave"
+        Me.Btnsave.Size = New System.Drawing.Size(100, 34)
+        Me.Btnsave.TabIndex = 7
+        Me.Btnsave.Text = "Save"
+        Me.Btnsave.UseVisualStyleBackColor = True
         '
-        'Btdelete
+        'Btndelete
         '
-        Me.Btdelete.Location = New System.Drawing.Point(327, 340)
-        Me.Btdelete.Name = "Btdelete"
-        Me.Btdelete.Size = New System.Drawing.Size(97, 34)
-        Me.Btdelete.TabIndex = 8
-        Me.Btdelete.Text = "Delete"
-        Me.Btdelete.UseVisualStyleBackColor = True
+        Me.Btndelete.Location = New System.Drawing.Point(327, 340)
+        Me.Btndelete.Name = "Btndelete"
+        Me.Btndelete.Size = New System.Drawing.Size(97, 34)
+        Me.Btndelete.TabIndex = 8
+        Me.Btndelete.Text = "Delete"
+        Me.Btndelete.UseVisualStyleBackColor = True
         '
         'Btnclose
         '
@@ -130,15 +135,15 @@ Partial Class CbMataKuliah
         Me.Btnclose.Text = "Close"
         Me.Btnclose.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'dgvdata
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NIP, Me.Nama, Me.Alamat})
-        Me.DataGridView1.Location = New System.Drawing.Point(46, 432)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 28
-        Me.DataGridView1.Size = New System.Drawing.Size(542, 219)
-        Me.DataGridView1.TabIndex = 10
+        Me.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvdata.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NIP, Me.Nama, Me.Alamat})
+        Me.dgvdata.Location = New System.Drawing.Point(46, 432)
+        Me.dgvdata.Name = "dgvdata"
+        Me.dgvdata.RowTemplate.Height = 28
+        Me.dgvdata.Size = New System.Drawing.Size(542, 219)
+        Me.dgvdata.TabIndex = 10
         '
         'NIP
         '
@@ -195,12 +200,12 @@ Partial Class CbMataKuliah
         Me.Label7.TabIndex = 15
         Me.Label7.Text = "Tugas"
         '
-        'TextBox2
+        'txttugas
         '
-        Me.TextBox2.Location = New System.Drawing.Point(275, 272)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(90, 26)
-        Me.TextBox2.TabIndex = 16
+        Me.txttugas.Location = New System.Drawing.Point(275, 272)
+        Me.txttugas.Name = "txttugas"
+        Me.txttugas.Size = New System.Drawing.Size(90, 26)
+        Me.txttugas.TabIndex = 16
         '
         'TextBox3
         '
@@ -214,9 +219,9 @@ Partial Class CbMataKuliah
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(371, 278)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(53, 20)
+        Me.Label8.Size = New System.Drawing.Size(41, 20)
         Me.Label8.TabIndex = 17
-        Me.Label8.Text = "Tugas"
+        Me.Label8.Text = "UTS"
         '
         'TextBox4
         '
@@ -230,87 +235,123 @@ Partial Class CbMataKuliah
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(535, 278)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(53, 20)
+        Me.Label9.Size = New System.Drawing.Size(43, 20)
         Me.Label9.TabIndex = 19
-        Me.Label9.Text = "Tugas"
+        Me.Label9.Text = "UAS"
         '
-        'CheckBox1
+        'cbjurusan
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(275, 109)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(98, 24)
-        Me.CheckBox1.TabIndex = 21
-        Me.CheckBox1.Text = "Laki-Laki"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.cbjurusan.FormattingEnabled = True
+        Me.cbjurusan.Location = New System.Drawing.Point(275, 164)
+        Me.cbjurusan.Name = "cbjurusan"
+        Me.cbjurusan.Size = New System.Drawing.Size(372, 28)
+        Me.cbjurusan.TabIndex = 23
         '
-        'CheckBox2
+        'Cbmatkul
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(449, 109)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(117, 24)
-        Me.CheckBox2.TabIndex = 22
-        Me.CheckBox2.Text = "Perempuan"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.Cbmatkul.FormattingEnabled = True
+        Me.Cbmatkul.Location = New System.Drawing.Point(275, 210)
+        Me.Cbmatkul.Name = "Cbmatkul"
+        Me.Cbmatkul.Size = New System.Drawing.Size(372, 28)
+        Me.Cbmatkul.TabIndex = 24
         '
-        'CbJurusan
+        'Panel1
         '
-        Me.CbJurusan.FormattingEnabled = True
-        Me.CbJurusan.Location = New System.Drawing.Point(275, 164)
-        Me.CbJurusan.Name = "CbJurusan"
-        Me.CbJurusan.Size = New System.Drawing.Size(372, 28)
-        Me.CbJurusan.TabIndex = 23
+        Me.Panel1.Controls.Add(Me.btnprocess)
+        Me.Panel1.Controls.Add(Me.RadioButton2)
+        Me.Panel1.Controls.Add(Me.RadioButton1)
+        Me.Panel1.Controls.Add(Me.lblgrade)
+        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(883, 306)
+        Me.Panel1.TabIndex = 26
         '
-        'ComboBox2
+        'RadioButton2
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(275, 210)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(372, 28)
-        Me.ComboBox2.TabIndex = 24
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(464, 98)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(116, 24)
+        Me.RadioButton2.TabIndex = 30
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Perempuan"
+        Me.RadioButton2.UseVisualStyleBackColor = True
         '
-        'BtnHitungGrade
+        'RadioButton1
         '
-        Me.BtnHitungGrade.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.BtnHitungGrade.Location = New System.Drawing.Point(715, 270)
-        Me.BtnHitungGrade.Name = "BtnHitungGrade"
-        Me.BtnHitungGrade.Size = New System.Drawing.Size(92, 37)
-        Me.BtnHitungGrade.TabIndex = 25
-        Me.BtnHitungGrade.Text = "-GRADE-"
-        Me.BtnHitungGrade.UseVisualStyleBackColor = False
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(263, 98)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(97, 24)
+        Me.RadioButton1.TabIndex = 29
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Laki-Laki"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'CbMataKuliah
+        'lblgrade
+        '
+        Me.lblgrade.AutoSize = True
+        Me.lblgrade.Location = New System.Drawing.Point(703, 269)
+        Me.lblgrade.Name = "lblgrade"
+        Me.lblgrade.Size = New System.Drawing.Size(78, 20)
+        Me.lblgrade.TabIndex = 0
+        Me.lblgrade.Text = "-GRADE-"
+        '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(12, 406)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(702, 259)
+        Me.Panel2.TabIndex = 27
+        '
+        'Panel3
+        '
+        Me.Panel3.Location = New System.Drawing.Point(12, 324)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(883, 67)
+        Me.Panel3.TabIndex = 28
+        '
+        'btnprocess
+        '
+        Me.btnprocess.Location = New System.Drawing.Point(616, 98)
+        Me.btnprocess.Name = "btnprocess"
+        Me.btnprocess.Size = New System.Drawing.Size(140, 31)
+        Me.btnprocess.TabIndex = 31
+        Me.btnprocess.UseVisualStyleBackColor = True
+        '
+        'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1295, 831)
-        Me.Controls.Add(Me.BtnHitungGrade)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.CbJurusan)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.Cbmatkul)
+        Me.Controls.Add(Me.cbjurusan)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txttugas)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvdata)
         Me.Controls.Add(Me.Btnclose)
-        Me.Controls.Add(Me.Btdelete)
-        Me.Controls.Add(Me.Btsave)
+        Me.Controls.Add(Me.Btndelete)
+        Me.Controls.Add(Me.Btnsave)
         Me.Controls.Add(Me.BtnNew)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Txtnama)
         Me.Controls.Add(Me.Txtnip)
-        Me.Name = "CbMataKuliah"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel3)
+        Me.Name = "Form2"
+        CType(Me.dgvdata, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -321,10 +362,10 @@ Partial Class CbMataKuliah
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents BtnNew As System.Windows.Forms.Button
-    Friend WithEvents Btsave As System.Windows.Forms.Button
-    Friend WithEvents Btdelete As System.Windows.Forms.Button
+    Friend WithEvents Btnsave As System.Windows.Forms.Button
+    Friend WithEvents Btndelete As System.Windows.Forms.Button
     Friend WithEvents Btnclose As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvdata As System.Windows.Forms.DataGridView
     Friend WithEvents NIP As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Nama As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Alamat As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -332,15 +373,19 @@ Partial Class CbMataKuliah
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txttugas As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents CbJurusan As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents BtnHitungGrade As System.Windows.Forms.Button
+    Friend WithEvents cbjurusan As System.Windows.Forms.ComboBox
+    Friend WithEvents Cbmatkul As System.Windows.Forms.ComboBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents lblgrade As System.Windows.Forms.Label
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents btnprocess As System.Windows.Forms.Button
 
 End Class

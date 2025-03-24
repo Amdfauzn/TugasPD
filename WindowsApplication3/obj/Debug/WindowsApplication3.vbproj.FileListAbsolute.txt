@@ -8,3 +8,5 @@ c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\
 c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.exe
 c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.xml
 c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.pdb
+C:\Users\fauza\OneDrive\Dokumen\Visual Studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Form2.resources
+C:\Users\fauza\OneDrive\Dokumen\Visual Studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.CbMataKuliah.resources

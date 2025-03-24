@@ -1,123 +1,150 @@
-﻿Public Class CbMataKuliah
+﻿Public Class Form2
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Set Judul Form
-        Me.Text = "-Form Mahasiswa-"
-
-        ' Inisialisasi DataGridView
-        DataGridView1.ColumnCount = 6
-        DataGridView1.Columns(0).Name = "NIP"
-        DataGridView1.Columns(1).Name = "Nama"
-        DataGridView1.Columns(2).Name = "Jenis Kelamin"
-        DataGridView1.Columns(3).Name = "Jurusan"
-        DataGridView1.Columns(4).Name = "Mata Kuliah"
-        DataGridView1.Columns(5).Name = "GRADE"
-
-        ' Pilihan Jurusan
-        CbJurusan.Items.Add("Teknik Informatika")
-        CbJurusan.Items.Add("Sistem Informasi")
-        CbJurusan.Items.Add("Teknik Komputer")
-        CbJurusan.Items.Add("Manajemen Informatika")
-
-        ' Pilihan Mata Kuliah
-        CbMataKuliah.Items.Add("Algoritma")
-        CbMataKuliah.Items.Add("Basis Data")
-        CbMataKuliah.Items.Add("Pemrograman Web")
-        CbMataKuliah.Items.Add("Jaringan Komputer")
+    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbjurusan.Items.Add("Manajemen Informatika")
+        cbjurusan.Items.Add("Ilmu Komputer")
+        cbjurusan.Items.Add("Sistem Informasi")
     End Sub
 
-    Private Sub BtnNew_Click(sender As Object, e As EventArgs) Handles BtnNew.Click
-        ' Membersihkan Input
-        TxtNip.Clear()
-        TxtNama.Clear()
-        TxtTugas.Clear()
-        TxtUTS.Clear()
-        TxtUAS.Clear()
-        LblGrade.Text = "-GRADE-"
-        RbLaki.Checked = False
-        RbPerempuan.Checked = False
-        CbJurusan.SelectedIndex = -1
-        CbMataKuliah.SelectedIndex = -1
+    Private Sub cbfakultas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbjurusan.SelectedIndexChanged
+        Dim fakultas As String = cbjurusan.SelectedItem
+        Cbmatkul.Items.Clear()
+        Select Case (fakultas)
+            Case "Manajemen Informatika"
+                Cbmatkul.Items.Add("Pemrograman Desktop")
+                Cbmatkul.Items.Add("Pemrograman WEB Lanjut")
+                Cbmatkul.Items.Add("Keamanan Sistem Informasi")
+            Case "Ilmu Komputer"
+                Cbmatkul.Items.Add("Kecerdasan Buatan")
+                Cbmatkul.Items.Add("Aljabar Linear")
+            Case "Sistem Informasi"
+                Cbmatkul.Items.Add("Pemrograman Web")
+                Cbmatkul.Items.Add("PBO")
+        End Select
     End Sub
 
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        ' Mengambil Data dari Form
-        Dim nip As String = TxtNip.Text
-        Dim nama As String = TxtNama.Text
-        Dim jenisKelamin As String = If(RbLaki.Checked, "Laki-Laki", "Perempuan")
-        Dim jurusan As String = CbJurusan.Text
-        Dim mataKuliah As String = CbMataKuliah.Text
-        Dim grade As String = LblGrade.Text
+    Private Sub txtnip_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnip.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
 
-        ' Validasi Input
-        If nip = "" Or nama = "" Or jurusan = "" Or mataKuliah = "" Or grade = "-GRADE-" Then
-            MessageBox.Show("Pastikan semua data sudah diisi dengan benar!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    Private Sub UpdateGrade()
+        Dim tugas, uts, uas As Double
+        If Double.TryParse(txttugas.Text, tugas) AndAlso Double.TryParse(txtuts.Text, uts) AndAlso Double.TryParse(txtuas.Text, uas) Then
+            Dim total As Double = (tugas * 0.3) + (uts * 0.3) + (uas * 0.4)
+            Dim grade As String
+
+            Select Case total
+                Case Is >= 78
+                    grade = "A"
+                Case Is >= 65
+                    grade = "B"
+                Case Is >= 50
+                    grade = "C"
+                Case Is >= 40
+                    grade = "D"
+                Case Else
+                    grade = "E"
+            End Select
+
+            lblgrade.Text = " " & grade
+        Else
+            lblgrade.Text = " -GRADE- "
+        End If
+    End Sub
+
+    Private Sub txttugas_TextChanged(sender As Object, e As EventArgs) Handles txttugas.TextChanged
+        UpdateGrade()
+    End Sub
+
+    Private Sub txtuts_TextChanged(sender As Object, e As EventArgs) Handles txtuts.TextChanged
+        UpdateGrade()
+    End Sub
+
+    Private Sub txtuas_TextChanged(sender As Object, e As EventArgs) Handles txtuas.TextChanged
+        UpdateGrade()
+    End Sub
+
+    Private Sub btnnew_Click(sender As Object, e As EventArgs) Handles btnnew.Click
+        txtnip.Clear()
+        txtnama.Clear()
+        cbjurusan.SelectedIndex = -1
+        cbmatkul.SelectedIndex = -1
+        txttugas.Clear()
+        txtuts.Clear()
+        txtuas.Clear()
+        lblgrade.Text = " -GRADE- "
+        txtnip.Enabled = True
+        txtnip.Focus()
+        rbL.Checked = False
+        rbP.Checked = False
+    End Sub
+
+    Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
+        If txtnip.Text = "" Or txtnama.Text = "" Or cbmatkul.Text = "" Or (Not rbL.Checked And Not rbP.Checked) Then
+            MessageBox.Show("Harap isi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
-        ' Menambahkan Data ke DataGridView
-        DataGridView1.Rows.Add(nip, nama, jenisKelamin, jurusan, mataKuliah, grade)
+        Dim rowIndex As Integer = -1
+        For Each row As DataGridViewRow In dgvdata.Rows
+            If row.Cells("dgnip").Value IsNot Nothing AndAlso row.Cells("dgnip").Value.ToString() = txtnip.Text Then
+                rowIndex = row.Index
+                Exit For
+            End If
+        Next
+
+        If rowIndex = -1 Then
+            dgvdata.Rows.Add(txtnip.Text, txtnama.Text, If(rbL.Checked, "Laki-Laki", "Perempuan"), cbjurusan.Text, cbmatkul.Text, lblgrade.Text)
+        Else
+            dgvdata.Rows(rowIndex).Cells("dgnip").Value = txtnip.Text
+            dgvdata.Rows(rowIndex).Cells("dgnama").Value = txtnama.Text
+            dgvdata.Rows(rowIndex).Cells("dgjeniskelamin").Value = If(rbL.Checked, "Laki-Laki", "Perempuan")
+            dgvdata.Rows(rowIndex).Cells("dgjurusan").Value = cbjurusan.Text
+            dgvdata.Rows(rowIndex).Cells("dgmatkul").Value = cbmatkul.Text
+            dgvdata.Rows(rowIndex).Cells("dggrade").Value = lblgrade.Text
+        End If
+        btnnew.PerformClick()
     End Sub
 
-    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
-        ' Menghapus Data yang Dipilih
-        If DataGridView1.SelectedRows.Count > 0 Then
-            DataGridView1.Rows.Remove(DataGridView1.SelectedRows(0))
+
+    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+        If dgvdata.SelectedRows.Count > 0 Then
+            Dim confirm As DialogResult = MessageBox.Show("Apakah yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If confirm = DialogResult.Yes Then
+                dgvdata.Rows.RemoveAt(dgvdata.SelectedRows(0).Index)
+                btnnew.PerformClick()
+            End If
         Else
-            MessageBox.Show("Pilih baris data yang ingin dihapus!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Pilih data yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        ' Menutup Aplikasi
+    Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
         Me.Close()
     End Sub
 
-    Private Sub BtnHitungGrade_Click(sender As Object, e As EventArgs) Handles BtnHitungGrade.Click
-        ' Menghitung Grade
-        Dim tugas As Integer = Val(TxtTugas.Text)
-        Dim uts As Integer = Val(TxtUTS.Text)
-        Dim uas As Integer = Val(TxtUAS.Text)
-        Dim nilaiAkhir As Double = (tugas * 0.3) + (uts * 0.3) + (uas * 0.4)
+    Private Sub dgvdata_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvdata.CellDoubleClick
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim row As DataGridViewRow = dgvdata.Rows(e.RowIndex)
 
-        If nilaiAkhir >= 80 Then
-            LblGrade.Text = "A"
-        ElseIf nilaiAkhir >= 70 Then
-            LblGrade.Text = "B"
-        ElseIf nilaiAkhir >= 60 Then
-            LblGrade.Text = "C"
-        ElseIf nilaiAkhir >= 50 Then
-            LblGrade.Text = "D"
-        Else
-            LblGrade.Text = "E"
+            txtnip.Text = row.Cells("dgnip").Value.ToString()
+            txtnama.Text = row.Cells("dgnama").Value.ToString()
+
+            If row.Cells("dgjeniskelamin").Value.ToString() = "Laki-Laki" Then
+                rbL.Checked = True
+            Else
+                rbP.Checked = True
+            End If
+
+            cbjurusan.Text = row.Cells("dgjurusan").Value.ToString()
+            cbmatkul.Text = row.Cells("dgmatkul").Value.ToString()
+            lblgrade.Text = row.Cells("dggrade").Value.ToString()
+
+            'disable nip saat klik dua kali pada data grid view
+            txtnip.Enabled = False
         End If
     End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles LblGrade.Click
-
-    End Sub
-
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnHitungGrade.Click
-
-    End Sub
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles BtnHitungGrade.Click
-
-    End Sub
-End Class
