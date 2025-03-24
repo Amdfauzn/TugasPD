@@ -1,0 +1,10 @@
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.exe.config
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Form1.resources
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Resources.resources
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.vbproj.GenerateResource.Cache
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.exe
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.pdb
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.xml
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.exe
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.xml
+c:\users\fauza\onedrive\dokumen\visual studio 2013\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.pdb
